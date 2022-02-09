@@ -3,6 +3,7 @@
 /node_modules
 /server-lib
 /hermes-lib
+/pghbeer-lib
 
 # Logs
 logs

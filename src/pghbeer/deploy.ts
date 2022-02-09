@@ -5,10 +5,10 @@ require('dotenv').config();
 
 const API_CONFIG = {
   key: process.env.HEROKU_API_KEY,
-  app: process.env.HERMES_APP_ID,
+  app: process.env.PGHBEER_APP_ID,
 };
 
-const TAR_FILENAME = 'hermes.tgz';
-const SOURCE = './hermes-lib';
+const TAR_FILENAME = 'pghbeer.tgz';
+const SOURCE = './pghbeer-lib';
 
 deploy(SOURCE, TAR_FILENAME, API_CONFIG.key, API_CONFIG.app);

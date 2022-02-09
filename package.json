@@ -8,6 +8,8 @@
   "scripts": {
     "build-hermes": "yarn run ts-node \"./src/hermes/build.ts\"",
     "deploy-hermes": "yarn run ts-node \"./src/hermes/deploy.ts\"",
+    "build-pghbeer": "yarn run ts-node \"./src/pghbeer/build.ts\"",
+    "deploy-pghbeer": "yarn run ts-node \"./src/pghbeer/deploy.ts\"",
     "lint": "eslint \"{src}/**/*.ts\" --fix",
     "type-check": "tsc --noEmit"
   },

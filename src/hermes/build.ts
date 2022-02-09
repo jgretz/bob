@@ -1,15 +1,15 @@
 import * as shell from 'shelljs';
-import * as packageJson from '../../../web/hermes/package.json';
+import * as packageJson from '../../../home/web/hermes/package.json';
 
-const TARGET = './hermes-lib';
-const SOURCE = '../web/hermes';
-const RETURN = '../../tools';
+const SOURCE = '~/Development/Gretz/home/web/hermes';
+const RESULT_ROOT = '~/Development/Gretz/bob';
+const RESULT_TARGET = './hermes-lib';
 
 // clean
 function clean(): void {
   shell.echo('Cleaning ...');
-  shell.rm('-rf', TARGET);
-  shell.mkdir(TARGET);
+  shell.rm('-rf', RESULT_TARGET);
+  shell.mkdir(RESULT_TARGET);
 }
 
 // build hermes
@@ -20,9 +20,9 @@ function buildHermes(): Promise<void> {
 
     shell.exec('yarn', () => {
       shell.exec('yarn build', () => {
-        shell.cd(RETURN);
+        shell.cd(RESULT_ROOT);
 
-        shell.mv(`${SOURCE}/dist/*`, TARGET);
+        shell.mv(`${SOURCE}/dist/*`, RESULT_TARGET);
         shell.rm('-rf', `${SOURCE}/dist/*`);
 
         resolve();
@@ -45,7 +45,7 @@ function movePackageJson(): void {
   };
 
   const shellString = new shell.ShellString(JSON.stringify(productionPackageJson));
-  shellString.to(`${TARGET}/package.json`);
+  shellString.to(`${RESULT_TARGET}/package.json`);
 }
 
 // main
