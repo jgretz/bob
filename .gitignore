@@ -4,6 +4,7 @@
 /server-lib
 /hermes-lib
 /pghbeer-lib
+*.tgz
 
 # Logs
 logs
